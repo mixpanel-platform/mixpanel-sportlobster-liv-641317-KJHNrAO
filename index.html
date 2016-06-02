@@ -386,7 +386,7 @@
         .groupByUser(function(count, events) {
             count = count || {"eventCount": 0, "eventTime":""};
             count.eventCount = events.length;
-            if(events.length >= 0){
+            if(events.length >= 1){
               count.eventTime = events[0].time
             }
             return count
