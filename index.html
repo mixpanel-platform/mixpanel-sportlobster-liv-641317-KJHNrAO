@@ -145,14 +145,10 @@
         .groupByUser(function(count, events){
             count = count || {"eventCount": 0, "eventTime":""};
             count.eventCount = events.length;
-            if(events.length >= 5){
-              count.eventTime = events[4].time
+            if(events.length >= 1){
+              count.eventTime = events[0].time
             }
             return count
-        })
-        // filter out days where a user sent < 5 events
-        .filter(function(user) {
-          return user.value.eventCount >= 5;
         })
         .groupBy([function(collection){
           var stringDate = new Date(collection.value.eventTime).toISOString().split('T')[0]
@@ -191,15 +187,11 @@
           .groupByUser(function(count, events) {
             count = count || {"eventCount": 0, "eventTime":""};
             count.eventCount = events.length;
-            if(events.length >= 0){
+            if(events.length >= 1){
               count.eventTime = events[0].time
             }
             return count
           })
-          //filter out days where a user sent < 5 events
-          // .filter(function(user_count) {
-          //   return user_count.value.eventCount >= 5;
-          // })
           .groupBy([function(event){
           //var firstDate = new Date(collection.value.eventTime).toISOString().substr(0, 7);
            var time = new Date().setHours(0,0,0,0);
@@ -338,14 +330,10 @@
         .groupByUser(function(count, events){
             count = count || {"eventCount": 0, "eventTime":""};
             count.eventCount = events.length;
-            if(events.length >= 5){
-              count.eventTime = events[4].time
+            if(events.length >= 1){
+              count.eventTime = events[0].time
             }
             return count
-        })
-        //filter out users with less than 5 events
-        .filter(function(user){
-          return user.value.eventCount >= 5
         })
         .groupBy([function(collection){
           var firstDate = new Date(collection.value.eventTime).toISOString().substr(0, 7);
@@ -420,14 +408,7 @@
           })
           // group each user's events by the day they were triggered,
           // and count how many events they sent each day
-          .groupByUser([setWeek], function(count, events) {
-            count = count || 0;
-            return count + events.length;
-          })
-          //filter out days where a user sent < 2 events
-          .filter(function(user_count) {
-            return user_count.value >= 2;
-          })
+          .groupByUser([setWeek],mixpanel.reducer.count())
           .groupBy(["key.1"], mixpanel.reducer.count());
         }
 
@@ -567,14 +548,7 @@
         })
         // group each user's events by the day they were triggered,
         // and count how many events they sent each day
-        .groupByUser([getDay], function(count, events) {
-          count = count || 0;
-          return count + events.length;
-        })
-        // filter out days where a user sent < 2 events
-        .filter(function(user_count) {
-          return user_count.value >= 2;
-        })
+        .groupByUser([getDay],mixpanel.reducer.count())
         .groupBy(["key.1"], mixpanel.reducer.count());
       }
 
@@ -600,14 +574,8 @@
         })
         // group each user's events by the day they were triggered,
         // and count how many events they sent each day
-        .groupByUser([getDay], function(count, events) {
-          count = count || 0;
-          return count + events.length;
-        })
-        // filter out days where a user sent < 2 events
-        .filter(function(user_count) {
-          return user_count.value >= 2;
-        })
+        
+        .groupByUser([getDay],mixpanel.reducer.count())
         .groupBy(["key.1"], mixpanel.reducer.count());
       }
 
