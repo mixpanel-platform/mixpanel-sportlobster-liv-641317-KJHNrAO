@@ -804,63 +804,7 @@
                          exporting: {
                           enabled: true
                         },
-              });
-              
-              //do math to figure out new/active users for the month
-              
-              var numOfMonths = monthlyNewUserxAxis.length
-              var uniquesLenght = monthlyUniquesYAxis.length
-
-              if(monthlyNewUserxAxis.length >= 6){
-                data = [((monthlyNewUserData[(numOfMonths-6)]/monthlyUniquesYAxis[(uniquesLenght-6)])*100),((monthlyNewUserData[(numOfMonths-5)]/monthlyUniquesYAxis[(uniquesLenght-5)])*100),((monthlyNewUserData[(numOfMonths-4)]/monthlyUniquesYAxis[(uniquesLenght-4)])*100),((monthlyNewUserData[(numOfMonths-3)]/monthlyUniquesYAxis[(uniquesLenght-3)])*100),((monthlyNewUserData[(numOfMonths-2)]/monthlyUniquesYAxis[(uniquesLenght-2)])*100),((monthlyNewUserData[(numOfMonths-1)]/monthlyUniquesYAxis[(uniquesLenght-1)])*100)]
-                monthlyNewUserxAxis =[monthlyNewUserxAxis[(numOfMonths-6)],monthlyNewUserxAxis[(numOfMonths-5)],monthlyNewUserxAxis[(numOfMonths-4)],monthlyNewUserxAxis[(numOfMonths-3)],monthlyNewUserxAxis[(numOfMonths-2)],monthlyNewUserxAxis[(numOfMonths-1)]]
-              }else if(monthlyNewUserxAxis.length === 5){
-                data = [((monthlyNewUserData[(numOfMonths-5)]/monthlyUniquesYAxis[(uniquesLenght-5)])*100),((monthlyNewUserData[(numOfMonths-4)]/monthlyUniquesYAxis[(uniquesLenght-4)])*100),((monthlyNewUserData[(numOfMonths-3)]/monthlyUniquesYAxis[(uniquesLenght-3)])*100),((monthlyNewUserData[(numOfMonths-2)]/monthlyUniquesYAxis[(uniquesLenght-2)])*100),((monthlyNewUserData[(numOfMonths-1)]/monthlyUniquesYAxis[(uniquesLenght-1)])*100)]
-                monthlyNewUserxAxis = [monthlyNewUserxAxis[(numOfMonths-5)],monthlyNewUserxAxis[(numOfMonths-4)],monthlyNewUserxAxis[(numOfMonths-3)],monthlyNewUserxAxis[(numOfMonths-2)],monthlyNewUserxAxis[(numOfMonths-1)]]
-              }else if(monthlyNewUserxAxis.length === 4){
-                data = [((monthlyNewUserData[(numOfMonths-4)]/monthlyUniquesYAxis[(uniquesLenght-4)])*100),((monthlyNewUserData[(numOfMonths-3)]/monthlyUniquesYAxis[(uniquesLenght-3)])*100),((monthlyNewUserData[(numOfMonths-2)]/monthlyUniquesYAxis[(uniquesLenght-2)])*100),((monthlyNewUserData[(numOfMonths-1)]/monthlyUniquesYAxis[(uniquesLenght-1)])*100)]
-                monthlyNewUserxAxis =[monthlyNewUserxAxis[(numOfMonths-4)],monthlyNewUserxAxis[(numOfMonths-3)],monthlyNewUserxAxis[(numOfMonths-2)],monthlyNewUserxAxis[(numOfMonths-1)]]
-              }else if(monthlyNewUserxAxis.length === 3){
-                data = [((monthlyNewUserData[(numOfMonths-3)]/monthlyUniquesYAxis[(uniquesLenght-3)])*100),((monthlyNewUserData[(numOfMonths-2)]/monthlyUniquesYAxis[(uniquesLenght-2)])*100),((monthlyNewUserData[(numOfMonths-1)]/monthlyUniquesYAxis[(uniquesLenght-1)])*100)]
-                monthlyNewUserxAxis =[monthlyNewUserxAxis[(numOfMonths-3)],monthlyNewUserxAxis[(numOfMonths-2)],monthlyNewUserxAxis[(numOfMonths-1)]]
-              }else if(monthlyNewUserxAxis.length === 2){
-                data = [((monthlyNewUserData[(numOfMonths-2)]/monthlyUniquesYAxis[(uniquesLenght-2)])*100),((monthlyNewUserData[(numOfMonths-1)]/monthlyUniquesYAxis[(uniquesLenght-1)])*100)]
-                monthlyNewUserxAxis =[monthlyNewUserxAxis[(numOfMonths-2)],monthlyNewUserxAxis[(numOfMonths-1)]]
-              }else if(monthlyNewUserxAxis.length === 1){
-                data = [((monthlyNewUserData[(numOfMonths-1)]/monthlyUniquesYAxis[(uniquesLenght-1)])*100)]
-                monthlyNewUserxAxis =[monthlyNewUserxAxis[(numOfMonths-1)]]
-              }else{}
-             
-              $('#MonthlyActiveAndNewPercentage').highcharts({
-                      title: {
-                          text: 'New Monthly Users Over Monthly Active User'
-                      },
-                      credits: {
-                          enabled: false
-                      },
-                      xAxis: {
-                          categories: monthlyNewUserxAxis
-                      },
-                      yAxis: {
-                        title: {
-                            text: '% New Over Active'
-                        }
-                      },
-                      tooltip:{
-                        shared: true,
-                        valueDecimals: 1,
-                        valueSuffix: " %"
-                      },
-                      series: [{
-                          type: 'spline',
-                          name: 'New Monthly Users Over Monthly Active User',
-                          data: data
-                      }],
-                       exporting: {
-                        enabled: true
-                      },
-              });
-              
+              });            
             })
           })
         }
