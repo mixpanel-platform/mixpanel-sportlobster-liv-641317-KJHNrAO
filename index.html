@@ -111,6 +111,10 @@
         <div style="float: left;  padding-top: 7px; padding-bottom: 7px; padding-right: 3px; max-width: 48%;" id="weeklyNewUsers" align="right"></div>
         <div style="float: right;  padding-top: 7px; padding-bottom: 7px; padding-left: 3px; max-width: 48%;" id="monthlyNewUsers" align="left"></div>
       </div>
+      <div class="newUsersOverActiveUsers clearfix" style="margin: auto; max-width: 98%;">
+        <div style="float: left;  padding-top: 7px; padding-bottom: 7px; padding-right: 3px; max-width: 48%;"  id="weeklyActiveAndNewPercentage" align="right"></div>
+        <div style="float: right;  padding-top: 7px; padding-bottom: 7px; padding-left: 3px; max-width: 48%;" id="MonthlyActiveAndNewPercentage" align="left"></div>
+      </div>
       <div class="DAUsMAUs clearfix" style="margin: auto; max-width: 98%;">
         <div style="float: left;  padding-top: 7px; padding-bottom: 20px; padding-right: 3px; max-width: 48%;" id="dau-over-mau-graph" align="right"></div>
         <div style="float: right;  padding-top: 7px; padding-bottom: 20px; padding-left: 3px; max-width: 48%;" id="dau-over-mau-graph-2" align="left"></div>
@@ -677,6 +681,9 @@
                   scale: 3,
                   fallbackToExportServer: false
                 },
+                chart: {
+                  width: 411
+                },
                 credits: {
                         enabled: false
                 },
@@ -740,6 +747,9 @@
 
               }
               $('#monthlyNewUsers').highcharts({
+                        chart: {
+                          width: 411
+                        },
                         title: {
                             text: 'New Users Per Month'
                         },
@@ -790,6 +800,9 @@
             })
 
             $('#weeklyActiveUsers').highcharts({
+              chart: {
+                width: 411
+              },
               title: {
                   text: 'Weekly Active Users'
               },
@@ -837,26 +850,29 @@
                     }
                   })
                   $('#weeklyNewUsers').highcharts({
-                            title: {
-                                text: 'New Users Per Week'
-                            },
-                            
-                            xAxis: {
-                                categories: weeklyNewUserxAxis
-                            },
-                            yAxis: {
-                              title: {
-                                  text: 'New Users'
-                              }
-                            },
-                            series: [{
-                                type: 'spline',
-                                name: 'Weekly New Users',
-                                data: weeklyNewUseryAxis
-                            }],
-                             exporting: {
-                              enabled: true
-                            },
+                    chart: {
+                      width: 411
+                    },
+                    title: {
+                        text: 'New Users Per Week'
+                    },
+                    
+                    xAxis: {
+                        categories: weeklyNewUserxAxis
+                    },
+                    yAxis: {
+                      title: {
+                          text: 'New Users'
+                      }
+                    },
+                    series: [{
+                        type: 'spline',
+                        name: 'Weekly New Users',
+                        data: weeklyNewUseryAxis
+                    }],
+                     exporting: {
+                      enabled: true
+                    },
                   });
                 console.log(weeklyNewUserxAxis)
                 console.log(weeklyNewUseryAxis.length)
@@ -1000,6 +1016,9 @@
                     }
                   }
                 $('#dau-over-mau-graph').highcharts({
+                  chart: {
+                    width: 411
+                  },
                   title: {
                       text: 'DAU\'s over MAU\'s Last Month'
                   },
@@ -1166,6 +1185,9 @@
                     }
                   }
                   $('#dau-over-mau-graph-2').highcharts({
+                    chart: {
+                      width: 411
+                    },
                     title: {
                         text: 'DAU\'s over MAU\'s This Month'
                     },
