@@ -111,23 +111,19 @@
         <div style="float: left;  padding-top: 7px; padding-bottom: 7px; padding-right: 3px; max-width: 48%;" id="weeklyNewUsers" align="right"></div>
         <div style="float: right;  padding-top: 7px; padding-bottom: 7px; padding-left: 3px; max-width: 48%;" id="monthlyNewUsers" align="left"></div>
       </div>
-      <div class="newUsersOverActiveUsers clearfix" style="margin: auto; max-width: 98%;">
-        <div style="float: left;  padding-top: 7px; padding-bottom: 7px; padding-right: 3px; max-width: 48%;"  id="weeklyActiveAndNewPercentage" align="right"></div>
-        <div style="float: right;  padding-top: 7px; padding-bottom: 7px; padding-left: 3px; max-width: 48%;" id="MonthlyActiveAndNewPercentage" align="left"></div>
-      </div>
       <div class="DAUsMAUs clearfix" style="margin: auto; max-width: 98%;">
         <div style="float: left;  padding-top: 7px; padding-bottom: 20px; padding-right: 3px; max-width: 48%;" id="dau-over-mau-graph" align="right"></div>
         <div style="float: right;  padding-top: 7px; padding-bottom: 20px; padding-left: 3px; max-width: 48%;" id="dau-over-mau-graph-2" align="left"></div>
       </div>
       <div id="graph" style="padding-top: 7px; padding-bottom: 7px; max-height: 700px;"></div>
+      div style="text-align: center; font-size: 10px">This report has been custom-built for Sportlobster by Mixpanel's client solutions team, and is not warranted or maintained alongside the core Mixpanel product. As the end-user, you are solely responsible for any bug fixes, feature updates, and ongoing code changes or iterations.</div>
     </div>
-    <div style="text-align: center; font-size: 10px">This report has been custom-built for Sportlobster by Mixpanel's client solutions team, and is not warranted or maintained alongside the core Mixpanel product. As the end-user, you are solely responsible for any bug fixes, feature updates, and ongoing code changes or iterations.</div>
     <script id="cq-new-users-today">
       //var date = new Date().toISOString().split('T')[0].split('-')
       var today = Math.round(new Date().getTime())
       var paramsToday = new Date().toISOString().split('T')[0]
       var a = new Date();
-      a.setDate(a.getDate() - 84);
+      a.setDate(a.getDate() - 168);
       var twelveWeeks = new Date(a).toISOString().split('T')[0]
       params = {
         "startDate": twelveWeeks,
