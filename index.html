@@ -383,18 +383,8 @@
         })
         // group each user's events by the day they were triggered,
         // and count how many events they sent each day
-        .groupByUser(function(count, events) {
-            count = count || {"eventCount": 0, "eventTime":""};
-            count.eventCount = events.length;
-            if(events.length >= 1){
-              count.eventTime = events[0].time
-            }
-            return count
-          })
-        //filter out days where a user sent < 2 events
-        // .filter(function(user_count) {
-        //   return user_count.value >= 2;
-        // })
+        .groupByUser([getMonth],mixpanel.reducer.count())
+        
         .groupBy(["key.1"], mixpanel.reducer.count());
       }
 
