@@ -960,42 +960,6 @@
                 console.log(weeklyNewUseryAxis.length)
                 console.log(weeklyNewUseryAxis)
                 console.log(weeklyUniquesYAxis)
-
-                var data = []
-                for (var i = 0; i < weeklyNewUseryAxis.length; i++) {
-                  data.push(parseFloat((weeklyNewUseryAxis[i]/weeklyUniquesYAxis[i])*100))
-                }
-                console.log(data)
-                
-                    $('#weeklyActiveAndNewPercentage').highcharts({
-                            title: {
-                                text: 'New Weekly Users Over Weekly Active User'
-                            },
-                            credits: {
-                                enabled: false
-                            },
-                            xAxis: {
-                                categories: weeklyNewUserxAxis
-                            },
-                            yAxis: {
-                              title: {
-                                  text: '% New Over Active'
-                              }
-                            },
-                            tooltip:{
-                              shared: true,
-                              valueDecimals: 1,
-                              valueSuffix: " %"
-                            },
-                            series: [{
-                                type: 'spline',
-                                name: 'New Weekly Users Over Weekly Active User',
-                                data: data
-                            }],
-                             exporting: {
-                              enabled: true
-                            },
-                    });
                 })
             })
           //})
