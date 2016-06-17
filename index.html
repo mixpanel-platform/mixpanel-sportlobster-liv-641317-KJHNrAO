@@ -136,7 +136,9 @@
         })
         .filter(function(item){
           if (item.properties["Logged In"] === "true" ){
-            return item
+            if(item.name !== "Recieved Push Notification"){
+              return item
+            }
           }
         })
         .groupByUser(function(count, events){
@@ -176,7 +178,9 @@
           })
           .filter(function(item){
             if (item.properties["Logged In"] === "true" ){
-              return item
+              if(item.name !== "Recieved Push Notification"){
+                return item
+              }
             }
           })
           // group each user's events by the day they were triggered,
@@ -321,7 +325,9 @@
         })
         .filter(function(item){
           if (item.properties["Logged In"] === "true" ){
-            return item
+            if(item.name !== "Recieved Push Notification"){
+              return item
+            }
           }
         })
         .groupByUser(function(count, events){
@@ -363,7 +369,9 @@
         })
         .filter(function(item){
           if (item.properties["Logged In"] === "true" ){
-            return item
+            if(item.name !== "Recieved Push Notification"){
+              return item
+            }
           }
         })
         // group each user's events by the day they were triggered,
@@ -400,7 +408,9 @@
           })
           .filter(function(item){
             if (item.properties["Logged In"] === "true" ){
-              return item
+              if(item.name !== "Recieved Push Notification"){
+                return item
+              }
             }
           })
           // group each user's events by the day they were triggered,
@@ -540,7 +550,9 @@
         })
         .filter(function(item){
           if (item.properties["Logged In"] === "true" ){
-            return item
+            if(item.name !== "Recieved Push Notification"){
+              return item
+            }
           }
         })
         // group each user's events by the day they were triggered,
@@ -566,7 +578,9 @@
         })
         .filter(function(item){
           if (item.properties["Logged In"] === "true" ){
-            return item
+            if(item.name !== "Recieved Push Notification"){
+              return item
+            }
           }
         })
         // group each user's events by the day they were triggered,
